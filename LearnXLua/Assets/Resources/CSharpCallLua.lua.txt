@@ -1,0 +1,6 @@
+print('calllua')
+a=125;
+str="nihaoa"
+isOk=true
+
+person={name='chenhuada',age=20 }
