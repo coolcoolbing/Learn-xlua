@@ -1,0 +1,28 @@
+--[[
+--在Unity里面new 一个gameobject对象。参数任意，xlua会自己去找重载
+--CS相当与C#相关，UnityEngine是相当于命名空间，GameObject就是类了，（）构造函数，xlua里不需要new
+CS.UnityEngine.GameObject("manager") 
+
+
+--访问unity里的静态属性
+print(CS.UnityEngine.Time.deltaTime)
+
+--修改静态属性
+print(CS.UnityEngine.Time.timeScale)
+CS.UnityEngine.Time.timeScale=0.5
+print(CS.UnityEngine.Time.timeScale)
+]]
+
+--小技巧：如果需要经常访问的类，可以先用局部变量引用后访问，除了减少敲代码的时间，还能提高性能：
+--所以可以先搭好C#的环境
+
+UnityEngine=CS.UnityEngine
+GameObject=UnityEngine.GameObject  --这个GameObject就代表了CS.UnityEngine.GameObject类
+
+--修改游戏物体的名字。find方法比较耗性能
+--GameObject.Find("Camera").name="Main Camera";
+
+--获得对象身上的AudioListener组件并且销毁这个组件
+camera=GameObject.Find("Camera")
+al=camera:GetComponent("AudioListener") --用：调用成员方法
+GameObject.Destroy(al); --调用静态方法

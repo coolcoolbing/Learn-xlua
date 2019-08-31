@@ -26,7 +26,7 @@ public class CustomLoader : MonoBehaviour {
         print(Application.streamingAssetsPath);//输出streamingAssetsPath文件夹的路径
 
         //通过streamingAssetsPath文件夹自定义的路径下寻找文件，加好文件后缀
-        string absPath = Application.streamingAssetsPath+"/"+ filePath+".lua.txt";
+        string absPath = Application.streamingAssetsPath+"/"+ filePath+".lua";
 
         string s=System.IO.File.ReadAllText(absPath);//读取txt文件的每一行内容
         

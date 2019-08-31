@@ -1,6 +1,28 @@
-print('calllua')
+﻿print('calllua')
 a=125;
 str="nihaoa"
 isOk=true
 
-person={name='chenhuada',age=20 }
+person={
+   name='chenhuada',
+   age=20,
+   45,643,87,42,
+   showinf=function (self,a,b)   --lua的函数默认隐藏第一个参数arg，arg是指向自身的参数,定义时写好以免C#访问时误操作
+       print(a+b);
+       print(person.name..":"..person.age.."岁")
+   end
+}
+
+--[[   如果用：定义就不需要定义第一个参数self
+    function person:showinf(a,b)   
+       print(a+b);
+       print(person.name..":"..person.age.."岁")
+   end
+]]
+
+
+--定义一个lua的函数
+function add(a,b)
+   print("这是一个lua的函数");
+   return a+b,a,b;
+end
